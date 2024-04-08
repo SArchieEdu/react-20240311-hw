@@ -1,0 +1,7 @@
+.root {
+    display: flex;
+}
+
+.withPaddings {
+    padding: 10px;
+}
