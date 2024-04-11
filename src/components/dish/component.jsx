@@ -1,16 +1,16 @@
-import { useState } from "react";
 import { Counter } from "../counter/component";
-import { useCurrentUser } from "../../contexts/user";
 
 import styles from "./styles.module.css";
 import classNames from "classnames";
-import { useSelector } from "react-redux";
 
-export const Dish = ({ dishId, className, withPaddings }) => {
-  const dish = useSelector((state) => state.dish.entities[dishId]);
-  const [amount, setAmount] = useState(0);
-  const { user } = useCurrentUser();
-
+export const Dish = ({
+  dish,
+  className,
+  withPaddings,
+  withCart,
+  amount,
+  setAmount,
+}) => {
   return (
     <div
       className={classNames(styles.root, className, {
@@ -18,7 +18,7 @@ export const Dish = ({ dishId, className, withPaddings }) => {
       })}
     >
       <div>{dish.name}</div>
-      {!!user && <Counter value={amount} onChange={setAmount} />}
+      {!!withCart && <Counter value={amount} onChange={setAmount} />}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { Layout } from "./components/layout/component";
-import { Restaurants } from "./components/restaurants/component";
+import { RestaurantsContainer } from "./components/restaurants/container";
 import { ThemeContext, useTheme } from "./contexts/theme";
 import { UserContext, useUser } from "./contexts/user";
 import { useMemo } from "react";
@@ -22,7 +22,7 @@ export const App = () => {
     <ThemeContext.Provider value={themeContextValue}>
       <UserContext.Provider value={userContextValue}>
         <Layout>
-          <Restaurants />
+          <RestaurantsContainer />
         </Layout>
       </UserContext.Provider>
     </ThemeContext.Provider>

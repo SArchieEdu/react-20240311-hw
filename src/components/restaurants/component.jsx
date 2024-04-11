@@ -1,18 +1,20 @@
 import { useState } from "react";
-import { RestaurantTabs } from "../restaurant-tabs/component";
-import { Restaurant } from "../restaurant/component";
+import { RestaurantTabsContainer } from "../restaurant-tabs/container";
+import { RestaurantContainer } from "../restaurant/container";
+import { Button } from "../button/component";
 
-export const Restaurants = () => {
+export const Restaurants = ({ onRefresh }) => {
   const [activeRestaurantId, setActiveRestaurantId] = useState(null);
 
   return (
     <div>
-      <RestaurantTabs
+      <RestaurantTabsContainer
         onTabClick={setActiveRestaurantId}
         activeRestaurantId={activeRestaurantId}
       />
+      <Button onClick={onRefresh}>Refresh</Button>
       {activeRestaurantId ? (
-        <Restaurant restaurantId={activeRestaurantId} />
+        <RestaurantContainer restaurantId={activeRestaurantId} />
       ) : (
         <span>SelectRestaurant</span>
       )}
