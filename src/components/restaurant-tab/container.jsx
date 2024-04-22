@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Tab } from "../tab/component";
 
-export const RestaurantTabContainer = ({ restaurantId, ...props }) => {
+export const RestaurantTabContainer = ({ restaurantId }) => {
   const restaurant = useSelector(
     (state) => state.restaurant.entities[restaurantId]
   );
@@ -10,5 +10,9 @@ export const RestaurantTabContainer = ({ restaurantId, ...props }) => {
     return null;
   }
 
-  return <Tab {...props} title={restaurant.name} />;
+  return (
+    <Tab path={`/restaurants/${restaurantId}`}>
+      <span>{restaurant.name}</span>
+    </Tab>
+  );
 };

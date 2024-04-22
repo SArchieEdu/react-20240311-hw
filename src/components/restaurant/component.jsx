@@ -1,5 +1,5 @@
-import { MenuContainer } from "../menu/container";
-import { ReviewsContainer } from "../reviews/container";
+import { Outlet } from "react-router-dom";
+import { Tab } from "../tab/component";
 
 /* eslint-disable react/jsx-key */
 export const Restaurant = ({ restaurant }) => {
@@ -7,13 +7,10 @@ export const Restaurant = ({ restaurant }) => {
     <div>
       <h2>{restaurant.name}</h2>
       <div>
-        <h3>Menu</h3>
-        <MenuContainer restaurantId={restaurant.id} />
+        <Tab path="./menu">Menu</Tab>
+        <Tab path="./reviews">Reviews</Tab>
       </div>
-      <div>
-        <h3>Reviews</h3>
-        <ReviewsContainer restaurantId={restaurant.id} />
-      </div>
+      <Outlet />
     </div>
   );
 };

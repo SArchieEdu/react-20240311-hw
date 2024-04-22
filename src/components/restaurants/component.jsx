@@ -1,23 +1,11 @@
-import { useState } from "react";
 import { RestaurantTabsContainer } from "../restaurant-tabs/container";
-import { RestaurantContainer } from "../restaurant/container";
-import { Button } from "../button/component";
+import { Outlet } from "react-router-dom";
 
-export const Restaurants = ({ onRefresh }) => {
-  const [activeRestaurantId, setActiveRestaurantId] = useState(null);
-
+export const Restaurants = () => {
   return (
     <div>
-      <RestaurantTabsContainer
-        onTabClick={setActiveRestaurantId}
-        activeRestaurantId={activeRestaurantId}
-      />
-      <Button onClick={onRefresh}>Refresh</Button>
-      {activeRestaurantId ? (
-        <RestaurantContainer restaurantId={activeRestaurantId} />
-      ) : (
-        <span>SelectRestaurant</span>
-      )}
+      <RestaurantTabsContainer />
+      <Outlet />
     </div>
   );
 };

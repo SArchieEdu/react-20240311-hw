@@ -1,9 +1,9 @@
 import { useMemo } from "react";
-import { ThemeContext, useCurrentTheme } from "../../contexts/theme";
+import { ThemeContext, useToggleCurrentTheme } from "../../contexts/theme";
 import { Button } from "../button/component";
 
 export const ThemeToggle = () => {
-  const { toggleTheme } = useCurrentTheme();
+  const toggleTheme = useToggleCurrentTheme();
   const headerTheme = useMemo(() => ({ theme: "default" }), []);
 
   return (

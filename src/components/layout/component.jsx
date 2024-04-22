@@ -1,12 +1,17 @@
+import { Outlet } from "react-router-dom";
 import { Footer } from "../footer/component";
 import { Header } from "../header/component";
 
-export const Layout = ({ children }) => {
+export const Layout = () => {
   return (
     <div>
-      <Header />
-      {children}
-      <Footer />
+      <div id="modal-container" />
+      <div id="popover-container" />
+      <div>
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
     </div>
   );
 };

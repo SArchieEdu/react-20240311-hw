@@ -1,7 +1,5 @@
-export const Tab = ({ title, onClick, isActive }) => {
-  return (
-    <button onClick={onClick} disabled={isActive}>
-      {title}
-    </button>
-  );
+import { NavLink } from "react-router-dom";
+
+export const Tab = ({ children, path }) => {
+  return <NavLink to={path}>{children}</NavLink>;
 };

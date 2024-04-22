@@ -5,8 +5,10 @@ import { Reviews } from "./component";
 import { getUsers } from "../../redux/entities/user/thunks/get-users";
 import { useRequest } from "../../hooks/use-request";
 import { REQUEST_STATUSES } from "../../redux/ui/request/constants";
+import { useParams } from "react-router-dom";
 
-export const ReviewsContainer = ({ restaurantId }) => {
+export const ReviewsContainer = () => {
+  const { restaurantId } = useParams();
   const reviewRequestStatus = useRequest(
     getReviewsByRestaurantId,
     restaurantId
