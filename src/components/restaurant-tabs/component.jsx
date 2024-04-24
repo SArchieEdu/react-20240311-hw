@@ -1,13 +1,10 @@
-import { RestaurantTabContainer } from "../restaurant-tab/container";
+import { Fragment } from "react";
 
-export const RestaurantTabs = ({ restaurantIds }) => {
+export const RestaurantTabs = ({ restaurantIds, renderTab }) => {
   return (
     <div>
       {restaurantIds.map((restaurantId) => (
-        <RestaurantTabContainer
-          key={restaurantId}
-          restaurantId={restaurantId}
-        />
+        <Fragment key={restaurantId}>{renderTab(restaurantId)}</Fragment>
       ))}
     </div>
   );

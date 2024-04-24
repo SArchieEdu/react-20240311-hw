@@ -1,4 +1,5 @@
-import { Counter } from "../counter/component";
+import { memo } from "react";
+import { CounterWithAuthorizeCheck } from "../counter/component";
 
 import styles from "./styles.module.css";
 import classNames from "classnames";
@@ -18,7 +19,11 @@ export const Dish = ({
       })}
     >
       <div>{dish.name}</div>
-      {!!withCart && <Counter value={amount} onChange={setAmount} />}
+      {!!withCart && (
+        <CounterWithAuthorizeCheck value={amount} onChange={setAmount} />
+      )}
     </div>
   );
 };
+
+export const DishWithMemo = memo(Dish);

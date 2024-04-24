@@ -25,7 +25,7 @@ export const DishContainer = ({ dishId, ...props }) => {
     <Dish
       {...props}
       dish={dish}
-      withCart={!!user}
+      withCart
       amount={amount}
       setAmount={setAmountCallback}
     />

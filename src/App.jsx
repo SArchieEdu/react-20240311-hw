@@ -10,6 +10,12 @@ import { ReviewsContainer } from "./components/reviews/container";
 import { Navigate } from "react-router-dom";
 import { ThemeContextProvider } from "./contexts/theme";
 import { UserContextProvider } from "./contexts/user";
+import {
+  Menu,
+  MenuGroup,
+  MenuItem,
+} from "./components/compound-component/component";
+import { ErrorBoundary } from "./components/error-boundary/component";
 
 const router = createBrowserRouter([
   {
@@ -38,10 +44,31 @@ const router = createBrowserRouter([
 
 export const App = () => {
   return (
-    <ThemeContextProvider>
-      <UserContextProvider>
-        <RouterProvider router={router} />
-      </UserContextProvider>
-    </ThemeContextProvider>
+    <ErrorBoundary>
+      <ThemeContextProvider>
+        <UserContextProvider>
+          <Menu>
+            <MenuItem name="Main" />
+            <MenuGroup name="Films">
+              <MenuItem name="Top10" />
+              <MenuItem name="Recommendation" />
+              <MenuGroup name="Selections">
+                <MenuItem name="Popular" />
+                <MenuItem name="Action" />
+                <MenuGroup name="Fantasy">
+                  <MenuItem name="2022" />
+                  <MenuItem name="2023" />
+                </MenuGroup>
+              </MenuGroup>
+            </MenuGroup>
+            <MenuGroup name="TvSeries">
+              <MenuItem name="Top10" />
+              <MenuItem name="Recommendation" />
+            </MenuGroup>
+          </Menu>
+          <RouterProvider router={router} />
+        </UserContextProvider>
+      </ThemeContextProvider>
+    </ErrorBoundary>
   );
 };

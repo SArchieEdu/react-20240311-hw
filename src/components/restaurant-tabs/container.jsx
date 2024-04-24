@@ -2,8 +2,8 @@
 import { useSelector } from "react-redux";
 import { RestaurantTabs } from "./component";
 
-export const RestaurantTabsContainer = () => {
+export const RestaurantTabsContainer = (props) => {
   const restaurantIds = useSelector((state) => state.restaurant.ids);
 
-  return <RestaurantTabs restaurantIds={restaurantIds} />;
+  return <RestaurantTabs restaurantIds={restaurantIds} {...props} />;
 };

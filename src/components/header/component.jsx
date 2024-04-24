@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Popover } from "../popover/component";
 import { useRef } from "react";
 import { useCallback } from "react";
+import { CartContainer } from "../cart/container";
 
 export const Header = () => {
   const buttonRef = useRef();
@@ -33,7 +34,7 @@ export const Header = () => {
         container &&
         createPortal(
           <Popover {...cartPosition} onClose={() => setCartPosition(null)}>
-            <div>Cart</div>
+            <CartContainer />
           </Popover>,
           container
         )}
